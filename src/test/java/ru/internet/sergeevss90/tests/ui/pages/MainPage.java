@@ -1,0 +1,19 @@
+package ru.internet.sergeevss90.tests.ui.pages;
+
+import com.codeborne.selenide.SelenideElement;
+import ru.internet.sergeevss90.drivers.web.BrowserWebDriver;
+
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+public class MainPage {
+
+    public static SelenideElement inputUsername = $("#labeled-input-1");
+    public static SelenideElement inputPassword = $("#labeled-input-3");
+
+    public static void login() {
+        open("/auth/login");
+        inputUsername.setValue(BrowserWebDriver.config.myLogin());
+        inputPassword.setValue(BrowserWebDriver.config.myPassword()).pressEnter();
+    }
+}
