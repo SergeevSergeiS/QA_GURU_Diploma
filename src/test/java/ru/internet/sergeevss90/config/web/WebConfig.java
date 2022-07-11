@@ -21,6 +21,6 @@ public interface WebConfig extends Config {
     String browserMobileView();
     String remoteDriverUrl();
     String videoStorage();
-    String myLogin();
-    String myPassword();
+    String todoistLogin();
+    String todoistPassword();
 }
