@@ -9,7 +9,7 @@ import static io.qameta.allure.Allure.step;
 public class TodoistWebTests extends TestBase {
 
     @Test
-    @DisplayName("Проверка открытия страниц основных фильтров")
+    @DisplayName("Inserting login credentials")
     void loginTest() {
         step("Авторизуемся", MainPage::login);
     }
