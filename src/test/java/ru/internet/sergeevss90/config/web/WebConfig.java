@@ -17,7 +17,6 @@ public interface WebConfig extends Config {
     String browserVersion();
     @DefaultValue("1920x1080")
     String browserSize();
-    @DefaultValue("")
     String browserMobileView();
     String remoteDriverUrl();
     String videoStorage();

@@ -1,7 +1,6 @@
 package ru.internet.sergeevss90.tests.ui;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
-import org.junit.jupiter.api.BeforeEach;
 import ru.internet.sergeevss90.helpers.Attach;
 import ru.internet.sergeevss90.drivers.web.BrowserWebDriver;
 import ru.internet.sergeevss90.tests.ui.pages.MainPage;
