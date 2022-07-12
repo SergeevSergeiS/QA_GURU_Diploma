@@ -9,8 +9,11 @@ import static io.qameta.allure.Allure.step;
 public class TodoistWebTests extends TestBase {
 
     @Test
-    @DisplayName("Inserting login credentials")
+    @DisplayName("UI authorization via e-mail and password")
     void loginTest() {
-        step("Authorisation", MainPage::login);
+        step("Insert login credentials", MainPage::login);
+        step("Check page content", () -> {
+            todayPage.checkFilterContent();
+        });
     }
 }

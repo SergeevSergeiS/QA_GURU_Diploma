@@ -16,4 +16,8 @@ public class MainPage {
         inputUsername.setValue(BrowserWebDriver.config.todoistLogin());
         inputPassword.setValue(BrowserWebDriver.config.todoistPassword()).pressEnter();
     }
+
+    public static void authorize() {
+
+    }
 }
