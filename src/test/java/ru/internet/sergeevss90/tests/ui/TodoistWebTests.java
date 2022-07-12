@@ -11,6 +11,6 @@ public class TodoistWebTests extends TestBase {
     @Test
     @DisplayName("Inserting login credentials")
     void loginTest() {
-        step("Авторизуемся", MainPage::login);
+        step("Authorisation", MainPage::login);
     }
 }

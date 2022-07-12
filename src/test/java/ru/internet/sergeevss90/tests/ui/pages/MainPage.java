@@ -13,8 +13,6 @@ public class MainPage {
 
     public static void login() {
         open("/auth/login");
-        System.out.println(BrowserWebDriver.config.todoistLogin());
-        System.out.println(BrowserWebDriver.config.todoistPassword());
         inputUsername.setValue(BrowserWebDriver.config.todoistLogin());
         inputPassword.setValue(BrowserWebDriver.config.todoistPassword()).pressEnter();
     }

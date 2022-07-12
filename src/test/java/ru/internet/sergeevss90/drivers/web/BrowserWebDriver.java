@@ -49,7 +49,7 @@ public class BrowserWebDriver {
         if (isRemoteWebDriver()) {
             capabilities.setCapability("enableVNC", true);
             capabilities.setCapability("enableVideo", true);
-            Configuration.remote = config.remoteDriverUrl();
+            Configuration.remote = "https://" + config.selenoidLogin() + ":" + config.selenoidPassword() + "@" + config.remoteDriverUrl();
         }
 
         capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
