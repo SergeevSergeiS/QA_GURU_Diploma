@@ -3,9 +3,9 @@ package ru.internet.sergeevss90.tests.ui;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.internet.sergeevss90.tests.ui.pages.MainPage;
-import ru.internet.sergeevss90.tests.ui.pages.TodayPage;
 
 import static io.qameta.allure.Allure.step;
+import static java.lang.Thread.sleep;
 
 public class TodoistWebTests extends TestBase {
 
@@ -26,6 +26,7 @@ public class TodoistWebTests extends TestBase {
                 todayPage.openPage());
         step("Check redirection", () -> {
             todayPage.checkFilterAvailability();
+            sleep(5000);
             loginPage.checkCurrentUrl();
         });
     }
