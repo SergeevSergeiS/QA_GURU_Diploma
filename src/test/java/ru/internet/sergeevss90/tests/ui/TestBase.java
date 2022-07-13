@@ -5,13 +5,13 @@ import ru.internet.sergeevss90.helpers.Attach;
 import ru.internet.sergeevss90.drivers.web.BrowserWebDriver;
 import ru.internet.sergeevss90.tests.ui.pages.MainPage;
 import ru.internet.sergeevss90.tests.ui.pages.TodayPage;
+import ru.internet.sergeevss90.tests.ui.pages.LoginPage;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
-import static com.codeborne.selenide.Selenide.open;
 
 public class TestBase {
 
@@ -19,6 +19,7 @@ public class TestBase {
     public static String deviceHost = System.getProperty("deviceHost");
     MainPage mainPage = new MainPage();
     TodayPage todayPage = new TodayPage();
+    LoginPage loginPage = new LoginPage();
 
     @BeforeAll
     static void setUp() {
