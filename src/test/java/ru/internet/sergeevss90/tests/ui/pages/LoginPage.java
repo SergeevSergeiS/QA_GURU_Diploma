@@ -3,14 +3,26 @@ package ru.internet.sergeevss90.tests.ui.pages;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
+import io.qameta.allure.Param;
+import ru.internet.sergeevss90.drivers.web.BrowserWebDriver;
 
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+import static io.qameta.allure.model.Parameter.Mode.MASKED;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LoginPage {
 
     public SelenideElement loginButton = $(byText("Log in"));
+    public SelenideElement inputUsername = $("#labeled-input-1");
+    public SelenideElement inputPassword = $("#labeled-input-3");
+
+    public void doLogin(@Param(name = "user", mode=MASKED) String user, @Param(name = "pass", mode=MASKED) String pass) {
+        open("/auth/login");
+        inputUsername.setValue(user);
+        inputPassword.setValue(pass).pressEnter();
+    }
 
     public LoginPage checkCurrentUrl() {
         String currentUrl = WebDriverRunner.getWebDriver().getCurrentUrl();

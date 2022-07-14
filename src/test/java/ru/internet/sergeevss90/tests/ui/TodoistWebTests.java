@@ -2,9 +2,6 @@ package ru.internet.sergeevss90.tests.ui;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import ru.internet.sergeevss90.tests.ui.pages.MainPage;
-
-import java.time.Duration;
 
 import static io.qameta.allure.Allure.step;
 
@@ -13,22 +10,26 @@ public class TodoistWebTests extends TestBase {
     @Test
     @DisplayName("UI authorization via e-mail and password")
     void loginTest() {
-        step("Insert login credentials", MainPage::login);
+        step("Insert login credentials", () -> {
+            loginPage.doLogin(user, pass);
+        });
         step("Check page content", () -> {
-            todayPage.checkFilterContent()
+            mainPage.checkFilterContent()
                      .checkCurrentUrl();
         });
     }
 
     @Test
-    @DisplayName("Re-direct to login page without authorization")
+    @DisplayName("Redirect of unauthorized user to login page")
     void redirectTest() {
         step("Open 'Today' page without authorization", () ->
-                todayPage.openPage());
+                mainPage.openPage());
         step("Check redirection", () -> {
-            todayPage.checkFilterAvailability();
+            mainPage.checkFilterAvailability();
             loginPage.checkLoginButton()
                      .checkCurrentUrl();
         });
     }
+
+
 }
