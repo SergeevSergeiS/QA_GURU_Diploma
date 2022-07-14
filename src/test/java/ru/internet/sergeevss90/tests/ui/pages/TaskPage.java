@@ -17,7 +17,7 @@ public class TaskPage {
             taskDescriptionInput = $(".task_editor__description_field"),
             priorityFlagsList = $(".item_actions_priority"),
             priorityFlag = $(byText("Priority " + generator.getPriority())),
-            buttonAddTask = $(".task_editor-action-buttons").$(byText("Add task"));
+            buttonAddTask = $(byText("Add task"));
 
 
     public TaskPage startTaskCreation() {
