@@ -17,7 +17,7 @@ public class TaskPage {
             taskDescriptionInput = $(".task_editor__description_field"),
             priorityFlagsList = $(".item_actions_priority"),
             priorityFlag = $(byText("Priority " + generator.getPriority())),
-            buttonAddTask = $(".a878a9a4 > .\\_09c23660");;
+            buttonAddTask = $(".a878a9a4 > ._09c23660");;
 
 
     public TaskPage startTaskCreation() {
@@ -51,7 +51,7 @@ public class TaskPage {
     }
 
     public TaskPage checkTooltip() {
-        tooltipToaster.shouldHave(Condition.text("Task was added"));
+        tooltipToaster.shouldHave(Condition.text("Task added to Inbox"));
         return this;
     }
 }
