@@ -18,10 +18,10 @@ public class LoginPage {
     public SelenideElement inputUsername = $("#labeled-input-1");
     public SelenideElement inputPassword = $("#labeled-input-3");
 
-    public void doLogin(@Param(name = "user", mode=MASKED) String user, @Param(name = "pass", mode=MASKED) String pass) {
+    public void doLogin() {
         open("/auth/login");
-        inputUsername.setValue(user);
-        inputPassword.setValue(pass).pressEnter();
+        inputUsername.setValue(BrowserWebDriver.config.todoistLogin());
+        inputPassword.setValue(BrowserWebDriver.config.todoistPassword()).pressEnter();
     }
 
     public LoginPage checkCurrentUrl() {

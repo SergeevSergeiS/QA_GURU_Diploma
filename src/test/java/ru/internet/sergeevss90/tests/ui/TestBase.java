@@ -18,8 +18,6 @@ public class TestBase {
     public static String deviceHost = System.getProperty("deviceHost");
     LoginPage loginPage = new LoginPage();
     MainPage mainPage = new MainPage();
-    String user = BrowserWebDriver.config.todoistLogin();
-    String pass = BrowserWebDriver.config.todoistPassword();
 
     @BeforeAll
     static void setUp() {

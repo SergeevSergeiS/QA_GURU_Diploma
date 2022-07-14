@@ -11,7 +11,7 @@ public class TodoistWebTests extends TestBase {
     @DisplayName("UI authorization via e-mail and password")
     void loginTest() {
         step("Insert login credentials", () -> {
-            loginPage.doLogin(user, pass);
+            loginPage.doLogin();
         });
         step("Check page content", () -> {
             mainPage.checkFilterContent()
@@ -31,5 +31,27 @@ public class TodoistWebTests extends TestBase {
         });
     }
 
-
+    @Test
+    @DisplayName("Main filters check")
+    void checkMainPAgeFiltersTest() {
+        step("Insert login credentials", () -> {
+            loginPage.doLogin();
+        });
+        step("Check 'Inbox' filter", () -> {
+            mainPage.openFilterInbox()
+                    .checkCurrentUrl();
+        });
+        step("Check 'Today' filter", () -> {
+            mainPage.openFilterToday()
+                    .checkCurrentUrl();
+        });
+        step("Check 'Labels' filter", () -> {
+            mainPage.openFilterLabels()
+                    .checkCurrentUrl();
+        });
+        step("Check 'Upcoming' filter", () -> {
+            mainPage.openFilterUpcoming()
+                    .checkFilterUpcoming();
+        });
+    }
 }
