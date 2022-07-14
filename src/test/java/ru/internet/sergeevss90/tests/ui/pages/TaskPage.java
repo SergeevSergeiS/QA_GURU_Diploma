@@ -17,7 +17,7 @@ public class TaskPage {
             taskDescriptionInput = $(".task_editor__description_field"),
             priorityFlagsList = $(".item_actions_priority"),
             priorityFlag = $(byText("Priority " + generator.getPriority())),
-            buttonAddTask = $(byText("Add task"));
+            buttonAddTask = $(".a878a9a4 > .\\_09c23660");;
 
 
     public TaskPage startTaskCreation() {
