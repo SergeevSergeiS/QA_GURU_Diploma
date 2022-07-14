@@ -15,7 +15,7 @@ public class TodoistWebTests extends TestBase {
         });
         step("Check page content", () -> {
             mainPage.checkFilterContent()
-                     .checkCurrentUrl();
+                    .checkCurrentUrl();
         });
     }
 
@@ -27,7 +27,7 @@ public class TodoistWebTests extends TestBase {
         step("Check redirection", () -> {
             mainPage.checkFilterAvailability();
             loginPage.checkLoginButton()
-                     .checkCurrentUrl();
+                    .checkCurrentUrl();
         });
     }
 
@@ -53,5 +53,27 @@ public class TodoistWebTests extends TestBase {
             mainPage.openFilterUpcoming()
                     .checkFilterUpcoming();
         });
+    }
+
+    @Test
+    @DisplayName("Check task adding")
+    void addNewTaskTest() {
+        step("Insert login credentials", () -> {
+            loginPage.doLogin();
+        });
+        step("Open task creation menu", () ->
+            taskPage.startTaskCreation());
+        step("Add name and description", () -> {
+            taskPage.inputTaskName();
+            taskPage.inputTaskDescription();
+        });
+        step("Choose priority", () -> {
+            taskPage.openPriorityFlag();
+            taskPage.setPriority();
+        });
+        step("Adding task", () ->
+            taskPage.addNewTask());
+        step("Checking task creation", () ->
+            taskPage.checkTooltip());
     }
 }

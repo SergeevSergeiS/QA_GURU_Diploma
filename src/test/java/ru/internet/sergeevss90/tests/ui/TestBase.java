@@ -8,6 +8,7 @@ import ru.internet.sergeevss90.tests.ui.pages.MainPage;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import ru.internet.sergeevss90.tests.ui.pages.TaskPage;
 
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
@@ -18,6 +19,7 @@ public class TestBase {
     public static String deviceHost = System.getProperty("deviceHost");
     LoginPage loginPage = new LoginPage();
     MainPage mainPage = new MainPage();
+    TaskPage taskPage = new TaskPage();
 
     @BeforeAll
     static void setUp() {
