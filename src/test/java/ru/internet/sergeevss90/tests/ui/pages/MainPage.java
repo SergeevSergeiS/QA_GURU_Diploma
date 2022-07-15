@@ -31,7 +31,7 @@ public class MainPage {
         String url;
         switch (pageType) {
             case "Inbox":
-                url = "https://todoist.com/app/project/2294649070";
+                url = "https://todoist.com/app/project/" + BrowserWebDriver.config.projectNumber();
                 assertEquals(url, currentUrl);
                 break;
             case "Today":

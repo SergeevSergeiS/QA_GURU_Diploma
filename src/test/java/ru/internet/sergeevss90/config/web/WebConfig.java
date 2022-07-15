@@ -22,6 +22,7 @@ public interface WebConfig extends Config {
     String videoStorage();
     String todoistLogin();
     String todoistPassword();
+    String projectNumber();
     String selenoidLogin();
     String selenoidPassword();
 }
