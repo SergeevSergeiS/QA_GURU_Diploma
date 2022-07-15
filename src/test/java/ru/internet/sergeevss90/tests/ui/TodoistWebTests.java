@@ -71,9 +71,9 @@ public class TodoistWebTests extends TestBase {
             taskPage.openPriorityFlag();
             taskPage.setPriority();
         });
-        step("Adding task", () ->
+        step("Finish task creation", () ->
             taskPage.addNewTask());
-        step("Checking task creation", () ->
+        step("Check result", () ->
             taskPage.checkTooltip());
     }
 }

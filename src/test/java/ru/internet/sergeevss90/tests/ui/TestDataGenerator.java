@@ -10,7 +10,7 @@ public class TestDataGenerator {
     }
 
     public String getTaskName() {
-        return faker.funnyName().toString();
+        return faker.funnyName().name();
     }
 
     public String getTaskDescription() {
