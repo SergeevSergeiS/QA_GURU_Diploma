@@ -13,9 +13,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LoginPage {
 
-    public SelenideElement loginButton = $(byText("Log in"));
-    public SelenideElement inputUsername = $("#labeled-input-1");
-    public SelenideElement inputPassword = $("#labeled-input-3");
+    public SelenideElement
+            loginButton = $(byText("Log in")),
+            inputUsername = $("#labeled-input-1"),
+            inputPassword = $("#labeled-input-3");
 
     public void doLogin() {
         open("/auth/login");

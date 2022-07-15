@@ -5,10 +5,12 @@ import ru.internet.sergeevss90.helpers.Attach;
 import ru.internet.sergeevss90.drivers.web.BrowserWebDriver;
 import ru.internet.sergeevss90.tests.ui.pages.LoginPage;
 import ru.internet.sergeevss90.tests.ui.pages.MainPage;
+import ru.internet.sergeevss90.tests.ui.pages.ProjectPage;
+import ru.internet.sergeevss90.tests.ui.pages.TaskPage;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
-import ru.internet.sergeevss90.tests.ui.pages.TaskPage;
+
 
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
@@ -20,6 +22,7 @@ public class TestBase {
     LoginPage loginPage = new LoginPage();
     MainPage mainPage = new MainPage();
     TaskPage taskPage = new TaskPage();
+    ProjectPage projectPage = new ProjectPage();
 
     @BeforeAll
     static void setUp() {

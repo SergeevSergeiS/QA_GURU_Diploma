@@ -10,7 +10,7 @@ public class TodoistWebTests extends TestBase {
     @Test
     @DisplayName("UI authorization via e-mail and password")
     void loginTest() {
-        step("Insert login credentials", () -> {
+        step("Authorize", () -> {
             loginPage.doLogin();
         });
         step("Check page content", () -> {
@@ -34,7 +34,7 @@ public class TodoistWebTests extends TestBase {
     @Test
     @DisplayName("Main filters check")
     void checkMainPAgeFiltersTest() {
-        step("Insert login credentials", () -> {
+        step("Authorize", () -> {
             loginPage.doLogin();
         });
         step("Check 'Inbox' filter", () -> {
@@ -58,7 +58,7 @@ public class TodoistWebTests extends TestBase {
     @Test
     @DisplayName("Check task adding")
     void addNewTaskTest() {
-        step("Insert login credentials", () -> {
+        step("Authorize", () -> {
             loginPage.doLogin();
         });
         step("Open task creation menu", () ->
@@ -75,5 +75,21 @@ public class TodoistWebTests extends TestBase {
             taskPage.addNewTask());
         step("Check result", () ->
             taskPage.checkTooltip());
+    }
+
+    @Test
+    @DisplayName("Check project adding")
+    void createProjectTest() {
+        step("Authorize", () -> {
+            loginPage.doLogin();
+        });
+        step("Open project creation menu", () ->
+                projectPage.startProjectCreation());
+        step("Add project name", () ->
+                projectPage.inputProjectName());
+        step("Finish project creation", () ->
+                projectPage.addNewProject());
+        step("Check result", () ->
+                projectPage.checkProjectCreation());
     }
 }
