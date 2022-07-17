@@ -12,14 +12,12 @@ public class ProjectPage {
     TestDataGenerator generator = new TestDataGenerator();
     String projectName = generator.getTaskName();
     public SelenideElement
-            projectsSection = $(byText("Projects")),
             plusButton = $(byXpath("(//button[@type='button'])[9]")),
             addProjectButton = $(byText("Add")),
             nameProject = $("#edit_project_modal_field_name"),
             checkProjectList = $("#projects_list");
 
     public ProjectPage startProjectCreation() {
-        projectsSection.hover();
         plusButton.click();
         return this;
     }

@@ -10,9 +10,8 @@ public class TodoistWebTests extends TestBase {
     @Test
     @DisplayName("UI authorization via e-mail and password")
     void loginTest() {
-        step("Authorize", () -> {
-            loginPage.doLogin();
-        });
+        step("Authorize", () ->
+            loginPage.doLogin());
         step("Check page content", () -> {
             mainPage.checkFilterContent()
                     .checkCurrentUrl();
@@ -34,9 +33,8 @@ public class TodoistWebTests extends TestBase {
     @Test
     @DisplayName("Main filters check")
     void checkMainPAgeFiltersTest() {
-        step("Authorize", () -> {
-            loginPage.doLogin();
-        });
+        step("Authorize", () ->
+                loginPage.doLogin());
         step("Check 'Inbox' filter", () -> {
             mainPage.openFilterInbox()
                     .checkCurrentUrl();
@@ -56,11 +54,10 @@ public class TodoistWebTests extends TestBase {
     }
 
     @Test
-    @DisplayName("Check task adding")
+    @DisplayName("Task adding check")
     void addNewTaskTest() {
-        step("Authorize", () -> {
-            loginPage.doLogin();
-        });
+        step("Authorize", () ->
+                loginPage.doLogin());
         step("Open task creation menu", () ->
             taskPage.startTaskCreation());
         step("Add name and description", () -> {
@@ -78,11 +75,10 @@ public class TodoistWebTests extends TestBase {
     }
 
     @Test
-    @DisplayName("Check project adding")
+    @DisplayName("Project adding check")
     void createProjectTest() {
-        step("Authorize", () -> {
-            loginPage.doLogin();
-        });
+        step("Authorize", () ->
+                loginPage.doLogin());
         step("Open project creation menu", () ->
                 projectPage.startProjectCreation());
         step("Add project name", () ->
@@ -91,5 +87,16 @@ public class TodoistWebTests extends TestBase {
                 projectPage.addNewProject());
         step("Check result", () ->
                 projectPage.checkProjectCreation());
+    }
+
+    @Test
+    @DisplayName("'Upcoming' filter shows today's date")
+    void nowDateFilterUpcomingTest() {
+        step("Authorize", () ->
+                loginPage.doLogin());
+        step("Open upcoming filter", () ->
+                mainPage.openFilterUpcoming());
+        step("Check displayed date", () ->
+                mainPage.checkUpcomingDate());
     }
 }

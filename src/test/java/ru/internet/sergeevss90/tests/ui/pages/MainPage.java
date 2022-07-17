@@ -4,7 +4,11 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import ru.internet.sergeevss90.drivers.web.BrowserWebDriver;
-import ru.internet.sergeevss90.helpers.Attach;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -18,7 +22,11 @@ public class MainPage {
             filterToday = $("#filter_today"),
             filterUpcoming = $("#filter_upcoming"),
             filterLabels = $("#filters_labels"),
-            calendar = $(".calendar");
+            calendar = $(".calendar"),
+            monthYear = $(".upcoming_view__calendar__controls__picker"),
+            dayMonth = $(".calendar__day").$(".upcoming_view__day_cell__weekday"),
+            dateMonth = $(".calendar__day").$(".upcoming_view__day_cell__date__number");
+    Locale locale = Locale.US;
 
     public MainPage checkFilterContent() {
         simpleContentFilter.shouldHave(Condition.exactOwnText("Today"));
@@ -80,6 +88,21 @@ public class MainPage {
 
     public MainPage checkFilterUpcoming() {
         calendar.shouldBe(Condition.visible);
+        return this;
+    }
+
+    public MainPage checkUpcomingDate() {
+        String dateCheck = String.format("%s %s %s",
+                monthYear.innerText(), dayMonth.innerText(), dateMonth.innerText());
+        System.out.println(dateCheck);
+        SimpleDateFormat formatter = new SimpleDateFormat("MMMM y E d", locale);
+        Date dateNow = new Date();
+        try {
+            Date date = formatter.parse(dateCheck);
+            assertEquals(formatter.format(date), formatter.format(dateNow));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         return this;
     }
 }
