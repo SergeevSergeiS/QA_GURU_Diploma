@@ -1,6 +1,7 @@
 package ru.internet.sergeevss90.tests.ui.pages;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import ru.internet.sergeevss90.drivers.web.BrowserWebDriver;
@@ -39,15 +40,15 @@ public class MainPage {
         String url;
         switch (pageType) {
             case "Inbox":
-                url = "https://todoist.com/app/project/" + BrowserWebDriver.config.projectNumber();
+                url = Configuration.baseUrl + "app/project/" + BrowserWebDriver.config.projectNumber();
                 assertEquals(url, currentUrl);
                 break;
             case "Today":
-                url = "https://todoist.com/app/today";
+                url = Configuration.baseUrl + "app/today";
                 assertEquals(url, currentUrl);
                 break;
             case "Filters & Labels":
-                url = "https://todoist.com/app/filters-labels";
+                url = Configuration.baseUrl + "app/filters-labels";
                 assertEquals(url, currentUrl);
                 break;
             default:

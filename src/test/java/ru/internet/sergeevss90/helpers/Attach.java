@@ -26,7 +26,9 @@ public class Attach {
     public static String getConsoleLogs() {
         return String.join("\n", Selenide.getWebDriverLogs(BROWSER));
     }
+
     public static final Logger LOGGER = LoggerFactory.getLogger(Attach.class);
+
     public static String sessionId() {
         return ((RemoteWebDriver) getWebDriver()).getSessionId().toString();
     }

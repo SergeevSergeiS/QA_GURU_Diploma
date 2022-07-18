@@ -15,8 +15,8 @@ public class LoginPage {
 
     public SelenideElement
             loginButton = $(byText("Log in")),
-            inputUsername = $("#labeled-input-1"),
-            inputPassword = $("#labeled-input-3");
+            inputUsername = $("#element-0"),
+            inputPassword = $("#element-3");
 
     public void doLogin() {
         open("/auth/login");
