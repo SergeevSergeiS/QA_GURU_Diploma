@@ -31,7 +31,7 @@ public class TodoistWebTests extends TestBase {
     }
 
     @Test
-    @DisplayName("Main filters check")
+    @DisplayName("Main filters availability")
     void checkMainPAgeFiltersTest() {
         step("Authorize", () ->
                 loginPage.doLogin());
@@ -54,7 +54,7 @@ public class TodoistWebTests extends TestBase {
     }
 
     @Test
-    @DisplayName("Task adding check")
+    @DisplayName("Task adding process")
     void addNewTaskTest() {
         step("Authorize", () ->
                 loginPage.doLogin());
@@ -75,7 +75,7 @@ public class TodoistWebTests extends TestBase {
     }
 
     @Test
-    @DisplayName("Project adding check")
+    @DisplayName("Project adding process")
     void createProjectTest() {
         step("Authorize", () ->
                 loginPage.doLogin());
