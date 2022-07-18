@@ -3,12 +3,15 @@ package ru.internet.sergeevss90.models;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
+import org.aeonbits.owner.ConfigFactory;
+import ru.internet.sergeevss90.config.api.ApiConfig;
 
 import static io.restassured.RestAssured.with;
 
 public class Specs {
-    static String token = "307ababb64863f3c4b166a569e421c2be8c3af71";
-    static String baseUrl = "https://api.todoist.com/rest/v1";
+    static ApiConfig config = ConfigFactory.create(ApiConfig.class);
+    static String token = config.token();
+    static String baseUrl = config.baseUrl();
 
     public static RequestSpecification requestGet = with()
             .header("Authorization", "Bearer " + token)

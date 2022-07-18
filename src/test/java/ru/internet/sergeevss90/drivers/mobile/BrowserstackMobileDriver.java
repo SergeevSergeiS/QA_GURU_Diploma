@@ -37,7 +37,7 @@ public class BrowserstackMobileDriver implements WebDriverProvider {
         mutableCapabilities.setCapability("app", configBStack.identificateapp());
         mutableCapabilities.setCapability("device", configBStack.deviceName());
         mutableCapabilities.setCapability("os_version", configBStack.platformVersion());
-        mutableCapabilities.setCapability("project", "QA.GURU lesson 11/22");
+        mutableCapabilities.setCapability("project", "QA.GURU diploma");
         mutableCapabilities.setCapability("build", "browserstack-build-1");
         mutableCapabilities.setCapability("name", "Sample tests run");
 

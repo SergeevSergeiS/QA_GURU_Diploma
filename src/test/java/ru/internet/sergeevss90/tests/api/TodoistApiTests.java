@@ -1,27 +1,24 @@
 package ru.internet.sergeevss90.tests.api;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.sleep;
 import static io.restassured.RestAssured.given;
-import static ru.internet.sergeevss90.models.Specs.requestGet;
-import static ru.internet.sergeevss90.models.Specs.response200;
+import static ru.internet.sergeevss90.models.Specs.*;
 
-public class TodoistApiTests {
+public class TodoistApiTests extends TestBase {
 
-    /*@Test
-    @DisplayName("Получить все проекты пользователя")
+    @Test
+    @Tag("api")
+    @DisplayName("Get all projects")
     void getAllProjectsUserTest() {
         given()
-                .contentType()
-                .body()
-                .log().all()
+                .spec(requestGet)
                 .when()
-                .post()
+                .get("/projects")
                 .then()
-                .log().all()
-                .statusCode()
-    }*/
+                .spec(response200)
+                .log().body();
+    }
 }

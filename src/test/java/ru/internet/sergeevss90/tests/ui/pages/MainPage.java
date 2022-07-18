@@ -95,7 +95,6 @@ public class MainPage {
     public MainPage checkUpcomingDate() {
         String dateCheck = String.format("%s %s %s",
                 monthYear.innerText(), dayMonth.innerText(), dateMonth.innerText());
-        System.out.println(dateCheck);
         SimpleDateFormat formatter = new SimpleDateFormat("MMMM y E d", locale);
         Date dateNow = new Date();
         try {
