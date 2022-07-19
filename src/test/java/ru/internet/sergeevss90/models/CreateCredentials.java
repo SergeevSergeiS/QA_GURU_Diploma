@@ -2,14 +2,12 @@ package ru.internet.sergeevss90.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Credentials {
+public class CreateCredentials {
 
     private String name;
     private String content;
     @JsonProperty("project_id")
     private String projectId;
-    @JsonProperty("id")
-    private long id;
 
     public String getName() {
         return name;
@@ -33,9 +31,5 @@ public class Credentials {
 
     public void setProjectId(String projectId) {
         this.projectId = projectId;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 }
