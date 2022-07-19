@@ -80,8 +80,7 @@ public class TodoistApiTests extends TestBase {
                 .post("/projects/" + id)
                 .then()
                 .log().body()
-                .spec(response204)
-                .body("name", is(updatedTaskName));
+                .spec(response204);
     }
 
     @Test
