@@ -70,7 +70,7 @@ public class TodoistApiTests extends TestBase {
                         .extract().jsonPath().getString("id");
         Credentials newCredentials = new Credentials();
         newCredentials.setName(updatedTaskName);
-        newCredentials.setId(projectNumber);
+        newCredentials.setId(id);
 
         given()
                 .spec(creationRequest)
