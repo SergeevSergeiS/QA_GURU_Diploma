@@ -8,6 +8,8 @@ public class Credentials {
     private String content;
     @JsonProperty("project_id")
     private String projectId;
+    @JsonProperty("id")
+    private String id;
 
     public String getName() {
         return name;
@@ -31,5 +33,9 @@ public class Credentials {
 
     public void setProjectId(String projectId) {
         this.projectId = projectId;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
