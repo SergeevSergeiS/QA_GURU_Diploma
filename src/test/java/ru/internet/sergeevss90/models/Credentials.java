@@ -9,7 +9,7 @@ public class Credentials {
     @JsonProperty("project_id")
     private String projectId;
     @JsonProperty("id")
-    private String id;
+    private long id;
 
     public String getName() {
         return name;
@@ -35,7 +35,7 @@ public class Credentials {
         this.projectId = projectId;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 }
