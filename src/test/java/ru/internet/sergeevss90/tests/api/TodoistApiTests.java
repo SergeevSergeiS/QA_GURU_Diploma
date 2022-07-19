@@ -55,12 +55,12 @@ public class TodoistApiTests extends TestBase {
     @Test
     @DisplayName("Updating project")
     public void updateProjectTest() {
-        Credentials credentials = new Credentials();
-        credentials.setName(outdatedTaskName);
+        Credentials oldCredentials = new Credentials();
+        oldCredentials.setName(outdatedTaskName);
         String id =
                 given()
                         .spec(creationRequest)
-                        .body(credentials)
+                        .body(oldCredentials)
                         .when()
                         .post("/projects")
                         .then()
@@ -68,12 +68,13 @@ public class TodoistApiTests extends TestBase {
                         .log().body()
                         .body("name", is(outdatedTaskName))
                         .extract().jsonPath().getString("id");
-        credentials.setName(updatedTaskName);
-        credentials.setId(projectNumber);
+        Credentials newCredentials = new Credentials();
+        newCredentials.setName(updatedTaskName);
+        newCredentials.setId(projectNumber);
 
         given()
                 .spec(creationRequest)
-                .body(credentials)
+                .body(newCredentials)
                 .when()
                 .post("/projects/" + id)
                 .then()
