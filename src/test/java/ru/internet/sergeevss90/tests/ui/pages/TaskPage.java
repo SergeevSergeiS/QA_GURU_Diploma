@@ -2,7 +2,7 @@ package ru.internet.sergeevss90.tests.ui.pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import ru.internet.sergeevss90.tests.ui.TestDataGenerator;
+import ru.internet.sergeevss90.helpers.TestDataGenerator;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;

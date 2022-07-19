@@ -13,11 +13,21 @@ public class Specs {
     static String token = config.token();
     static String baseUrl = config.baseUrl();
 
-    public static RequestSpecification requestGet = with()
+    public static RequestSpecification getRequest = with()
             .header("Authorization", "Bearer " + token)
             .baseUri(baseUrl);
 
     public static ResponseSpecification response200 = new ResponseSpecBuilder()
             .expectStatusCode(200)
             .build();
+
+    public static ResponseSpecification response204 = new ResponseSpecBuilder()
+            .expectStatusCode(204)
+            .build();
+
+    public static RequestSpecification creationRequest = with()
+            .header("Authorization", "Bearer " + token)
+            .header("X-Request-Id", "$(uuidgen)")
+            .contentType("application/json")
+            .baseUri(baseUrl);
 }

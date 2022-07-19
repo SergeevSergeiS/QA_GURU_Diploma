@@ -1,6 +1,7 @@
 package ru.internet.sergeevss90.tests.ui.pages;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import ru.internet.sergeevss90.drivers.web.BrowserWebDriver;
@@ -21,12 +22,13 @@ public class LoginPage {
     public void doLogin() {
         open("/auth/login");
         inputUsername.setValue(BrowserWebDriver.config.todoistLogin());
-        inputPassword.setValue(withText(BrowserWebDriver.config.todoistPassword()).sensitive()).pressEnter();
+        inputPassword.setValue(withText(BrowserWebDriver.config.todoistPassword()).sensitive())
+                .pressEnter();
     }
 
     public LoginPage checkCurrentUrl() {
         String currentUrl = WebDriverRunner.getWebDriver().getCurrentUrl();
-        String url = "https://todoist.com/auth/login?success_page=%2Fapp%2Ftoday";
+        String url = Configuration.baseUrl + "auth/login?success_page=%2Fapp%2Ftoday";
         assertEquals(url, currentUrl);
         return this;
     }

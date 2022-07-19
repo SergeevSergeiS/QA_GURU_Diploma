@@ -6,10 +6,10 @@ import org.junit.jupiter.api.Test;
 
 import static io.qameta.allure.Allure.step;
 
+@Tag("web")
 public class TodoistWebTests extends TestBase {
 
     @Test
-    @Tag("web")
     @DisplayName("UI authorization via e-mail and password")
     void loginTest() {
         step("Authorize", () ->
@@ -21,7 +21,6 @@ public class TodoistWebTests extends TestBase {
     }
 
     @Test
-    @Tag("web")
     @DisplayName("Redirect of unauthorized user to login page")
     void redirectTest() {
         step("Open 'Today' page without authorization", () ->
@@ -34,7 +33,6 @@ public class TodoistWebTests extends TestBase {
     }
 
     @Test
-    @Tag("web")
     @DisplayName("Main filters availability")
     void checkMainPAgeFiltersTest() {
         step("Authorize", () ->
@@ -58,7 +56,6 @@ public class TodoistWebTests extends TestBase {
     }
 
     @Test
-    @Tag("web")
     @DisplayName("Task adding process")
     void addNewTaskTest() {
         step("Authorize", () ->
@@ -80,7 +77,6 @@ public class TodoistWebTests extends TestBase {
     }
 
     @Test
-    @Tag("web")
     @DisplayName("Project adding process")
     void createProjectTest() {
         step("Authorize", () ->
@@ -96,7 +92,6 @@ public class TodoistWebTests extends TestBase {
     }
 
     @Test
-    @Tag("web")
     @DisplayName("'Upcoming' filter shows today's date")
     void nowDateFilterUpcomingTest() {
         step("Authorize", () ->

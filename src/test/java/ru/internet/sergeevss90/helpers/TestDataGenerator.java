@@ -1,4 +1,4 @@
-package ru.internet.sergeevss90.tests.ui;
+package ru.internet.sergeevss90.helpers;
 
 import com.github.javafaker.Faker;
 
@@ -15,5 +15,9 @@ public class TestDataGenerator {
 
     public String getTaskDescription() {
         return "Visit " + faker.address().fullAddress();
+    }
+
+    public String getStreetName() {
+        return "Visit " + faker.address().streetName();
     }
 }
