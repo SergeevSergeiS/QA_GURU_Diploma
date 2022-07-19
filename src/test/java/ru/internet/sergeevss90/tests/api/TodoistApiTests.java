@@ -3,7 +3,8 @@ package ru.internet.sergeevss90.tests.api;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import ru.internet.sergeevss90.models.Credentials;
+import ru.internet.sergeevss90.models.CreateCredentials;
+import ru.internet.sergeevss90.models.UpdateCredentials;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.is;
@@ -39,11 +40,11 @@ public class TodoistApiTests extends TestBase {
     @Test
     @DisplayName("Adding a new project")
     void createNewProjectTest() {
-        Credentials credentials = new Credentials();
-        credentials.setName(projectName);
+        CreateCredentials createCredentials = new CreateCredentials();
+        createCredentials.setName(projectName);
         given()
                 .spec(creationRequest)
-                .body(credentials)
+                .body(createCredentials)
                 .when()
                 .post("/projects")
                 .then()
@@ -55,12 +56,12 @@ public class TodoistApiTests extends TestBase {
     @Test
     @DisplayName("Updating project")
     public void updateProjectTest() {
-        Credentials oldCredentials = new Credentials();
-        oldCredentials.setName(outdatedTaskName);
+        UpdateCredentials oldCreateCredentials = new UpdateCredentials();
+        oldCreateCredentials.setName(outdatedTaskName);
         long id =
                 given()
                         .spec(creationRequest)
-                        .body(oldCredentials)
+                        .body(oldCreateCredentials)
                         .when()
                         .post("/projects")
                         .then()
@@ -68,13 +69,13 @@ public class TodoistApiTests extends TestBase {
                         .log().body()
                         .body("name", is(outdatedTaskName))
                         .extract().jsonPath().getLong("id");
-        Credentials newCredentials = new Credentials();
-        newCredentials.setName(updatedTaskName);
-        newCredentials.setId(id);
+        UpdateCredentials newCreateCredentials = new UpdateCredentials();
+        newCreateCredentials.setName(updatedTaskName);
+        newCreateCredentials.setId(id);
 
         given()
                 .spec(creationRequest)
-                .body(newCredentials)
+                .body(newCreateCredentials)
                 .when()
                 .post("/projects/" + id)
                 .then()
@@ -86,13 +87,13 @@ public class TodoistApiTests extends TestBase {
     @Test
     @DisplayName("Adding a new task")
     void createNewTaskTest() {
-        Credentials credentials = new Credentials();
-        credentials.setContent(taskName);
-        credentials.setProjectId(projectNumber);
+        CreateCredentials createCredentials = new CreateCredentials();
+        createCredentials.setContent(taskName);
+        createCredentials.setProjectId(projectNumber);
 
         given()
                 .spec(creationRequest)
-                .body(credentials)
+                .body(createCredentials)
                 .when()
                 .post("/tasks")
                 .then()
