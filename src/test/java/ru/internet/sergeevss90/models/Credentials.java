@@ -29,7 +29,7 @@ public class Credentials {
         return projectId;
     }
 
-    public void setProject_id(String projectId) {
+    public void setProjectId(String projectId) {
         this.projectId = projectId;
     }
 }
