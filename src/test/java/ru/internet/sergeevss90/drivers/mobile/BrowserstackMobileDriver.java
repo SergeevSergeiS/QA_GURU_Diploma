@@ -34,11 +34,11 @@ public class BrowserstackMobileDriver implements WebDriverProvider {
         mutableCapabilities.setCapability("browserstack.appium_version", "1.22.0");
         mutableCapabilities.setCapability("browserstack.user", browserstackLogin);
         mutableCapabilities.setCapability("browserstack.key", browserstackPassword);
-        mutableCapabilities.setCapability("app", configBStack.identificateapp());
+        mutableCapabilities.setCapability("app", configBStack.app());
         mutableCapabilities.setCapability("device", configBStack.deviceName());
         mutableCapabilities.setCapability("os_version", configBStack.platformVersion());
         mutableCapabilities.setCapability("project", "QA.GURU diploma");
-        mutableCapabilities.setCapability("build", "browserstack-build-1");
+        mutableCapabilities.setCapability("build", "browserstack-android");
         mutableCapabilities.setCapability("name", "Sample tests run");
 
         return new RemoteWebDriver(getBrowserstackUrl(), mutableCapabilities);

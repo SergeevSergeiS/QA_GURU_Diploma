@@ -9,15 +9,10 @@ import org.aeonbits.owner.Config;
 })
 public interface BrowserstackConfig extends Config {
 
-    String loginWP();
-    String passwordWP();
     String deviceName();
-    String platformName();
     String platformVersion();
     String loginBS();
     String passwordBS();
-    String identificateapp();
-    String url();
     String app();
-
+    String url();
 }
