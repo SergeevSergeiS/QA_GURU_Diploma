@@ -13,7 +13,7 @@ import static ru.internet.sergeevss90.models.Specs.*;
 @Tag("api")
 public class TodoistApiTests extends TestBase {
 
-   @Test
+    @Test
     @DisplayName("Get all user's projects")
     void getAllProjectsTest() {
         given()
@@ -54,10 +54,11 @@ public class TodoistApiTests extends TestBase {
     }
 
     @Test
-    @DisplayName("Updating project")
+    @DisplayName("Updating project name")
     public void updateProjectTest() {
         UpdateCredentials oldCreateCredentials = new UpdateCredentials();
         oldCreateCredentials.setName(outdatedTaskName);
+
         long id =
                 given()
                         .spec(creationRequest)
@@ -69,6 +70,7 @@ public class TodoistApiTests extends TestBase {
                         .log().body()
                         .body("name", is(outdatedTaskName))
                         .extract().jsonPath().getLong("id");
+
         UpdateCredentials newCreateCredentials = new UpdateCredentials();
         newCreateCredentials.setName(updatedTaskName);
         newCreateCredentials.setId(id);
@@ -99,5 +101,29 @@ public class TodoistApiTests extends TestBase {
                 .spec(response200)
                 .log().body()
                 .body("content", is(taskName));
+    }
+
+    @Test
+    @DisplayName("Delete project")
+    void deleteProject() {
+        UpdateCredentials credentials = new UpdateCredentials();
+        credentials.setName("Delete this");
+
+        String id =
+                given()
+                        .spec(creationRequest)
+                        .body(credentials)
+                        .when()
+                        .post("/projects")
+                        .then()
+                        .spec(response200)
+                        .extract().jsonPath().getString("id");
+
+        given()
+                .spec(getRequest)
+                .when()
+                .delete("/projects/" + id)
+                .then()
+                .spec(response204);
     }
 }
